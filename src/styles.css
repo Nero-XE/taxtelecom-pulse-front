@@ -1,1 +1,19 @@
-@import "ttailwindcss";
+@import "tailwindcss";
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 120s linear infinite;
+}
+
+.bg-main {
+    background-color: #d5f0ed;
+}
