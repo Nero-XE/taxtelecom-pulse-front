@@ -1,0 +1,32 @@
+<h1 class="font-bold text-3xl text-center">Авторизация</h1>
+
+<div class="flex p-4 bg-main rounded-4xl outline-1 outline-black/10 m-8 gap-4">
+    <div class="flex relative p-16 max-lg:hidden max-sm:hidden">
+        <img class="absolute z-1" src="images/login-img-main.svg" alt="main">
+        <img class="animate-spin-slow" src="images/login-img-second.svg" alt="second">
+    </div>
+    <div class="bg-white p-8 flex flex-col gap-8 outline-1 outline-black/10 rounded-2xl shadow-lg">
+        <div class="flex justify-center">
+            <img src="images/app-logo.svg" alt="maxim technology">
+        </div>
+        <form id="login-form" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <label class="cursor-pointer" for="login">Логин</label>
+                <div class="flex relative items-center">
+                    <img class="absolute ml-4" src="icons/form-login-icon.svg" alt="login">
+                    <input class="bg-white text-sm p-4 pl-12 pr-4 rounded-full outline-1 outline-gray-300 focus:outline-5 focus:outline-teal-500/25 transition-all duration-150 w-xs max-sm:w-3xs" required type="text" id="login">
+                </div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="cursor-pointer" for="password">Пароль</label>
+                <div class="flex relative items-center">
+                    <img class="absolute ml-4" src="icons/form-password-icon.svg" alt="login">
+                    <input class="bg-white text-sm p-4 pl-12 pr-4 rounded-full outline-1 outline-gray-300 focus:outline-5 focus:outline-teal-500/25 transition-all duration-150 w-xs max-sm:w-3xs" required type="password" id="password">
+                </div>
+            </div>
+        </form>
+        <input type="button" for="login-form" class="font-bold text-white text-sm p-4 bg-teal-500 hover:bg-teal-400 active:bg-teal-600 transition-colors duration-300 rounded-full w-full cursor-pointer" value="Авторизоваться">
+    </div>
+</div>
+
+<p class="text-xs text-gray-500 text-center">Версия приложения: 0.0.1 Пре-альфа</p>
