@@ -1,0 +1,30 @@
+<h1 class="font-bold text-4xl text-black text-center mb-16">Вход</h1>
+
+<div class="bg-white outline-1 outline-gray-300 w-min h-min flex rounded-4xl overflow-hidden">
+    <div class="bg-gray-50 w-[400px] h-[400px] shadow-[1px_0_0_#d1d5dc] flex items-center justify-center">
+        <img class="" src="images/login-page-image.svg" alt="main">
+    </div>
+    <div class="w-[400px] h-[400px] flex flex-col items-center justify-between p-8">
+        <img src="images/app-logo.svg" alt="maxim technology">
+        <form id="login-form" class="flex flex-col gap-4 w-full">
+            <div class="flex flex-col gap-2">
+                <label class="ml-4 text-sm" for="login">Логин</label>
+                <div class="flex flex-row items-center relative">
+                    <img class="absolute p-4" src="icons/form-login-icon.svg" alt="login">
+                    <input class="text-sm pl-12 px-6 h-12 outline-1 outline-gray-300 focus:outline-5 focus:outline-teal-500/20 transition-all rounded-full w-full" required type="text" id="login">
+                </div>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label class="ml-4 text-sm" for="password">Пароль</label>
+                <div class="flex flex-row items-center relative">
+                    <img class="absolute p-4" src="icons/form-password-icon.svg" alt="login">
+                    <input class="text-sm pl-12 px-6 h-12 outline-1 outline-gray-300 focus:outline-4 focus:outline-teal-500/20 transition-all rounded-full w-full" required type="password" id="password">
+                </div>
+            </div>
+        </form>
+        <span class="text-xs ml-4 text-red-700 hidden">Не верный логин или пароль</span>
+        <input type="button" form="login-form" class="text-sm font-bold h-12 text-white py-3 bg-teal-400 hover:bg-teal-300 active:bg-teal-500 transition-colors rounded-full w-full" value="Вход">
+    </div>
+</div>
+
+<p class="text-xs text-gray-500 text-center mt-16">Версия приложения: 0.0.1 Пре-альфа</p>
