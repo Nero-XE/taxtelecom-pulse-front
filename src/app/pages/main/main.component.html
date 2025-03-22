@@ -1,0 +1,28 @@
+<div class="flex overflow-hidden rounded-4xl outline-1 outline-gray-300 h-full">
+  <div class="flex flex-col items-center gap-8 bg-gray-50 p-8 h-full w-xs">
+    <div>
+      <img src="images/app-logo.svg" alt="Maxim Technology" />
+    </div>
+    <div class="w-[100%]">
+      <hr class="mx-4 text-gray-300" />
+    </div>
+    <nav class="flex flex-col gap-4 h-full w-full">
+      @for (item of navItems; track $index) {
+        <app-nav-item [navItem]="item"></app-nav-item>
+      }
+    </nav>
+    <div class="flex flex-col gap-4 h-min w-full">
+      <a (click)="logout()" class="transition-all flex items-center gap-4 px-4 py-2 hover:bg-black/5 rounded-full grayscale-100 text-gray-500 opacity-50 cursor-pointer">
+        <img src="icons/nav-logout-icon.svg" alt="applications">
+        <span class="text-sm">Выход</span>
+      </a>
+      <p class="text-xs text-center text-gray-500 opacity-50">Версия приложения: 0.0.1 Пре-альфа</p>
+    </div>
+  </div>
+  <div class="bg-white h-full w-3xl shadow-[inset_1px_0_0_#d1d5dc]">
+    <div class="shadow-[0_1px_0_#d1d5dc] px-8 py-4">
+        <p>Кошкаров Дмитрий Алексеевич</p>
+    </div>
+    <router-outlet />
+  </div>
+</div>

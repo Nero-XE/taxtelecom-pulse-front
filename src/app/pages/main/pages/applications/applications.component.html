@@ -1,0 +1,64 @@
+<div class="flex m-8 flex-col gap-4 h-[85%]">
+    <h1 class="font-bold text-3xl">Анкеты</h1>
+    <div class="w-full h-full overflow-y-auto">
+        <p class="text-gray-400 mb-4 ml-4">Договор гпх</p>
+        <div class="w-full h-full flex flex-col gap-2">
+            @for (item of applications(); track $index) {
+                <details class="group border-1 border-gray-300 rounded-3xl cursor-pointer open:transition-colors open:bg-gray-50">
+                    <summary class="px-4 py-2 list-none flex items-center justify-between">
+                        <span class="text-sm">{{item.full_name}}</span>
+                        <img src="icons/summary-marker-icon.svg" class="group-open:transition-transform group-open:rotate-180" alt="marker icon">
+                    </summary>
+                    <hr class="text-gray-300 mb-6" />
+                    <ul class="mx-8 grid gap-2">
+                        <li class="flex gap-2">
+                            <img src="icons/details-receipt-date-icon.svg" alt="">
+                            <span class="text-sm">Дата поступления анкеты: {{item.receipt_date | date}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-mail-icon.svg" alt="">
+                            <span class="text-sm">Адрес эл. почты: {{item.email}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-res-city-icon.svg" alt="">
+                            <span class="text-sm">Город проживания: {{item.res_city}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-edu-city-icon.svg" alt="">
+                            <span class="text-sm">Город обучения: {{item.edu_city}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-edu-org-icon.svg" alt="">
+                            <span class="text-sm">Образовательное учреждение: {{item.edu_org}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-course-icon.svg" alt="">
+                            <span class="text-sm">Курс обучения: {{item.course}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-profession-icon.svg" alt="">
+                            <span class="text-sm">Специальность: {{item.profession}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-unit-icon.svg" alt="">
+                            <span class="text-sm">Отдел: {{item.unit}}</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <img src="icons/details-head-icon.svg" alt="">
+                            <span class="text-sm">Руководитель отдела: {{item.head}}</span>
+                        </li>
+                    </ul>
+                    <hr class="text-gray-300 mt-6" />
+                    <div class="flex items-center">
+                        <a class="flex w-full items-center justify-center gap-2 text-sm py-2">
+                            <span class="text-teal-600">Подробнее</span>
+                            <img src="icons/details-link-icon.svg" alt="">
+                        </a>
+                        <hr class="text-gray-300 rotate-90 w-8">
+                        <a aria-disabled="true" class="w-full text-center text-sm aria-disabled:text-gray-300 aria-disabled:cursor-not-allowed">Moodle</a>
+                    </div>
+                </details>
+            }
+        </div>
+    </div>
+</div>
