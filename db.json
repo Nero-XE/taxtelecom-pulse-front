@@ -1,0 +1,166 @@
+{
+  "roles": [
+    {
+      "id": "1",
+      "name": "Администратор"
+    },
+    {
+      "id": "2",
+      "name": "Пользователь"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "login": "admin",
+      "password": "admin",
+      "full_name": "Кошкаров Дмитрий Алексеевич",
+      "role": "Администратор"
+    }
+  ],
+  "applications": [
+    {
+      "id": 1,
+      "full_name": "Ильин Лев Александрович",
+      "receipt_date" : "2025-03-20",
+      "email": "ivanov_ii@mail.com",
+      "res_city": "Екатеринбург",
+      "edu_city": "Курган",
+      "edu_org": "ГПБОУ “КТК”",
+      "course": "Закончил/а обучение",
+      "profession": "Разработчик Web и мультимедия приложений",
+      "unit": "Разработка Front-End",
+      "head": "Зайцева Мария Марковна"
+    },
+    {
+      "id": 2,
+      "full_name": "Смирнова Анна Дмитриевна",
+      "receipt_date": "2025-04-15",
+      "email": "smirnova_anna@mail.com",
+      "res_city": "Москва",
+      "edu_city": "Санкт-Петербург",
+      "edu_org": "ГБПОУ “СПбКТ”",
+      "course": "Закончил/а обучение",
+      "profession": "Графический дизайнер",
+      "unit": "Дизайн интерфейсов",
+      "head": "Иванов Иван Иванович"
+    },
+    {
+      "id": 3,
+      "full_name": "Козлов Артем Сергеевич",
+      "receipt_date": "2025-05-10",
+      "email": "kozlov_artem@mail.com",
+      "res_city": "Новосибирск",
+      "edu_city": "Томск",
+      "edu_org": "ГАПОУ “ТТК”",
+      "course": "3 курс",
+      "profession": "Программист Python",
+      "unit": "Backend-разработка",
+      "head": "Петрова Елена Викторовна"
+    },
+    {
+      "id": 4,
+      "full_name": "Морозова Екатерина Андреевна",
+      "receipt_date": "2025-06-01",
+      "email": "morozova_katya@mail.com",
+      "res_city": "Казань",
+      "edu_city": "Уфа",
+      "edu_org": "ГБПОУ “УКТ”",
+      "course": "2 курс",
+      "profession": "Мобильный разработчик",
+      "unit": "Разработка iOS",
+      "head": "Сидоров Алексей Николаевич"
+    },
+    {
+      "id": 5,
+      "full_name": "Волков Денис Олегович",
+      "receipt_date": "2025-07-22",
+      "email": "volkov_denis@mail.com",
+      "res_city": "Самара",
+      "edu_city": "Омск",
+      "edu_org": "ГПОУ “ОКТ”",
+      "course": "Закончил/а обучение",
+      "profession": "Тестировщик ПО",
+      "unit": "QA-инженерия",
+      "head": "Кузнецова Ольга Сергеевна"
+    },
+    {
+      "id": 6,
+      "full_name": "Белова Алина Павловна",
+      "receipt_date": "2025-08-14",
+      "email": "belova_alina@mail.com",
+      "res_city": "Ростов-на-Дону",
+      "edu_city": "Краснодар",
+      "edu_org": "ГБПОУ “ККТ”",
+      "course": "4 курс",
+      "profession": "Аналитик данных",
+      "unit": "Data Science",
+      "head": "Морозов Дмитрий Алексеевич"
+    },
+    {
+      "id": 7,
+      "full_name": "Новиков Игорь Владимирович",
+      "receipt_date": "2025-09-05",
+      "email": "novikov_igor@mail.com",
+      "res_city": "Воронеж",
+      "edu_city": "Липецк",
+      "edu_org": "ГПОУ “ЛКТ”",
+      "course": "1 курс",
+      "profession": "Системный администратор",
+      "unit": "IT-инфраструктура",
+      "head": "Федорова Татьяна Ивановна"
+    },
+    {
+      "id": 8,
+      "full_name": "Кузнецова Виктория Александровна",
+      "receipt_date": "2025-10-18",
+      "email": "kuznetsova_vika@mail.com",
+      "res_city": "Красноярск",
+      "edu_city": "Иркутск",
+      "edu_org": "ГБПОУ “ИКТ”",
+      "course": "Закончил/а обучение",
+      "profession": "DevOps-инженер",
+      "unit": "CI/CD",
+      "head": "Соколов Андрей Викторович"
+    },
+    {
+      "id": 9,
+      "full_name": "Лебедев Максим Игоревич",
+      "receipt_date": "2025-11-30",
+      "email": "lebedev_max@mail.com",
+      "res_city": "Пермь",
+      "edu_city": "Екатеринбург",
+      "edu_org": "ГПОУ “ЕКТ”",
+      "course": "3 курс",
+      "profession": "Fullstack-разработчик",
+      "unit": "Веб-разработка",
+      "head": "Павлова Анна Дмитриевна"
+    },
+    {
+      "id": 10,
+      "full_name": "Соколова Дарья Сергеевна",
+      "receipt_date": "2025-12-12",
+      "email": "sokolova_dasha@mail.com",
+      "res_city": "Тюмень",
+      "edu_city": "Челябинск",
+      "edu_org": "ГБПОУ “ЧКТ”",
+      "course": "2 курс",
+      "profession": "UX/UI-дизайнер",
+      "unit": "Дизайн интерфейсов",
+      "head": "Васильев Павел Андреевич"
+    },
+    {
+      "id": 11,
+      "full_name": "Петров Алексей Викторович",
+      "receipt_date": "2026-01-25",
+      "email": "petrov_alex@mail.com",
+      "res_city": "Волгоград",
+      "edu_city": "Астрахань",
+      "edu_org": "ГПОУ “АКТ”",
+      "course": "4 курс",
+      "profession": "Сетевой инженер",
+      "unit": "Сети и безопасность",
+      "head": "Михайлова Екатерина Сергеевна"
+    }
+  ]
+}
