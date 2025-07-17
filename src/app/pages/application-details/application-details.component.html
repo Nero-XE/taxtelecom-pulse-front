@@ -1,0 +1,80 @@
+@if (applicationDetails(); as application) {
+    <header class="header">
+        <button
+            appearance="action"
+            class="back-button"
+            size="m"
+            tuiButton
+            type="button"
+            routerLink="/applications"
+            iconStart="@tui.chevron-left"
+        >
+            Назад
+        </button>
+        <h3 class="page-header">{{application.expand.profile.fullName}}</h3>
+        <h6 class="page-subheader">Дата поступления анкеты: {{application.created | formatDate}} </h6>
+    </header>
+
+    <hr class="divider">
+
+    <div 
+        class="items-container"
+        tuiFade="vertical"
+    >
+
+        <ul class="tui-list tui-list_large">
+            <li class="tui-list__item">
+                Образование
+                <ul class="tui-list tui-list_linear tui-list_nested">
+                    <li class="tui-list__item">Город обучения: {{application.expand.eduCity.name}}</li>
+                    <li class="tui-list__item">Образовательное учреждение: {{application.expand.eduOrg.name}}</li>
+                    <li class="tui-list__item">Курс обучения: {{application.course}}</li>
+                </ul>
+            </li>
+            <li class="tui-list__item">Город проживания: {{application.expand.resCity.name}}</li>
+            <li class="tui-list__item">Статус анкеты: {{application.expand.status.name}}</li>
+            <li class="tui-list__item">Адрес эл. почты: {{application.email}}</li>
+            <li class="tui-list__item">Комментарий: {{application.comment}}</li>
+        </ul>
+
+        <hr class="divider">
+
+        <h6 class="page-subheader">Moodle профиль</h6>
+
+        @if (moodle(); as moodle) {
+            <article class="item">
+                <header class="item__header">
+                    <tui-avatar
+                        [src]="moodle.expand.profile.fullName | userInitials"
+                        size="l"
+                        [style.background]="moodle.expand.profile.fullName | userInitials | tuiAutoColor"
+                    />
+                    <div class="header__container">
+                        <p class="container__status">Статус: {{moodle.expand.status.name}}</p>
+                        <div class="item__main">
+                            <p class="container__status">Цель: {{moodle.expand.target.name}}</p>
+                            <p class="container__status">Сроки тестирования: {{moodle.start_test_date | formatDate}} - {{moodle.end_test_date | formatDate}}</p>
+                            <p class="container__status">Сроки вып. заданий: {{moodle.start_task_date| formatDate}} - {{moodle.end_task_date | formatDate}}</p>
+                        </div>
+                    </div>
+                </header>
+                <footer class="item__footer">
+                    <button
+                        appearance="flat"
+                        class="footer__button"
+                        size="m"
+                        tuiButton
+                        type="button"
+                        iconEnd="@tui.chevron-right"
+                    >
+                        Подробнее
+                    </button>
+                </footer>
+            </article>
+        } @else if (moodle() === null) {
+            <h6 class="not-found-header">Moodle профиль отсутствует</h6>
+        }
+    </div>
+} @else { 
+    <tui-loader class="loader" [overlay]="true"/>
+}

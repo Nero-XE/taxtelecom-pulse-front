@@ -1,0 +1,67 @@
+@if (applicationDetails(); as application) {
+    <header class="header">
+        <button
+            appearance="action"
+            class="back-button"
+            size="m"
+            tuiButton
+            type="button"
+            routerLink="/profiles"
+            iconStart="@tui.chevron-left"
+        >
+            Назад
+        </button>
+        <h3 class="page-header">{{application.expand['profile']['fullName']}}</h3>
+        <h6 class="page-subheader">Профиль создан: {{application.created | formatDate}}</h6>
+    </header>
+
+    <hr class="divider">
+
+    <div 
+        class="items-container"
+        tuiFade="vertical"
+    >
+        <ul class="tui-list tui-list_large">
+            <li class="tui-list__item">
+                Образование
+                <ul class="tui-list tui-list_linear tui-list_nested">
+                    <li class="tui-list__item">Город обучения: {{application.expand['eduCity']['name']}}</li>
+                    <li class="tui-list__item">Образовательное учреждение: {{application.expand['eduOrg']['name']}}</li>
+                    <li class="tui-list__item">Курс обучения: {{application.course}}</li>
+                </ul>
+            </li>
+            <li class="tui-list__item">Город проживания: {{application.expand['resCity']['name']}}</li>
+            <li class="tui-list__item">Адрес эл. почты: {{application.email}}</li>
+        </ul>
+
+        <hr class="divider">
+
+        <h6 class="page-subheader">Все анкеты профиля:</h6>
+
+        <article class="application-item">
+            <header class="application-item__header">
+                <div class="application-item__header__description">
+                    <h6 class="application-item__header__description__header" tuiFade="horizontal">{{application.expand['profile']['fullName']}}</h6>
+                    <p class="application-item__header__description__division">{{application.expand['division']['name']}}</p>
+                </div>
+            </header>
+            <div class="application-item__description">
+                <p>Дата поступления анкеты: {{application.created | formatDate}}</p>
+            </div>
+            <footer class="application-item__footer">
+                <button
+                    appearance="primary"
+                    size="m"
+                    tuiButton
+                    type="button"
+                    [routerLink]="`/applications/${application.id}`"
+                >
+                    Подробнее
+                </button>
+            </footer>
+        </article>        
+
+    </div>
+} @else { 
+    <tui-loader class="loader" [overlay]="true"/>
+}

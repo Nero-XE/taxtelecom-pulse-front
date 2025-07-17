@@ -1,0 +1,16 @@
+<header class="header">
+    <h3 class="page-header">Системный журнал</h3>
+</header>
+
+<tui-loader [showLoader]="isLoading()" class="inline-flex">
+  <tui-textfield>
+    <textarea
+      tuiTextarea
+      class="textarea"
+      [(ngModel)]="value"
+      [min]="30"
+      [max]="30"
+      [readOnly]="true"
+    ></textarea>
+  </tui-textfield>
+</tui-loader>

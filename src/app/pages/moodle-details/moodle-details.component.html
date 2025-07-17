@@ -1,0 +1,42 @@
+@if (moodle(); as moodle) {
+
+    <header class="header">
+        <button
+            appearance="action"
+            class="back-button"
+            size="m"
+            tuiButton
+            type="button"
+            routerLink="/moodle"
+            iconStart="@tui.chevron-left"
+        >
+            Назад
+        </button>
+        <h3 class="page-header">{{moodle.expand.profile.fullName}}</h3>
+        <h6 class="page-subheader">Список тестов в Moodle:</h6>
+    </header>
+
+    <hr class="divider"/>
+
+    <section
+        class="items-container"
+        tuiFade="vertical"
+    >
+        <ul class="tui-list tui-list_large">
+            <li class="tui-list__item">Базы данных: {{moodle.expand.tests.database | testInterpretator}}</li>
+            <li class="tui-list__item">C#: {{moodle.expand.tests.cSharp | testInterpretator}}</li>
+            <li class="tui-list__item">Java: {{moodle.expand.tests.java | testInterpretator}}</li>
+            <li class="tui-list__item">Swift: {{moodle.expand.tests.swift | testInterpretator}}</li>
+            <li class="tui-list__item">Kotlin: {{moodle.expand.tests.kotlin | testInterpretator}}</li>
+            <li class="tui-list__item">Python: {{moodle.expand.tests.python | testInterpretator}}</li>
+            <li class="tui-list__item">JavaScript: {{moodle.expand.tests.js | testInterpretator}}</li>
+            <li class="tui-list__item">PHP: {{moodle.expand.tests.php | testInterpretator}}</li>
+            <li class="tui-list__item">Системное администрирование: {{moodle.expand.tests.systemAdmin | testInterpretator}}</li>
+            <li class="tui-list__item">Вербальный тест: {{moodle.expand.tests.verbal | testInterpretator}}</li>
+            <li class="tui-list__item">Числовой тест: {{moodle.expand.tests.numerical | testInterpretator}}</li>
+        </ul>
+    </section>
+
+} @else { 
+    <tui-loader class="loader" [overlay]="true"/>
+}

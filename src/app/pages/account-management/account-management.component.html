@@ -1,0 +1,126 @@
+<header class="header">
+    <h3 class="page-header">Управление аккаунтами</h3>
+
+    <button
+        appearance="secondary"
+        size="m"
+        tuiButton
+        type="button"
+        (click)="showDialog(template)"
+    >
+        Добавить пользвателя
+    </button>
+</header>
+
+<ng-template
+    #template
+    let-observer
+>
+    <h6 class="dialog-header">Создание нового аккаунта</h6>
+
+    <form [formGroup]="accountForm" class="dialog-container">
+        <label>
+            <tui-textfield
+                iconStart="@tui.mail"
+            >   
+                <label tuiLabel>Адрес электронной почты</label>
+                <input
+                    placeholder="example@mail.com"
+                    tuiTextfield
+                    formControlName="email"
+                />
+            </tui-textfield>
+            <tui-error
+                formControlName="email"
+                [error]="[] | tuiFieldError | async"
+            />
+        </label>
+        <label>
+            <tui-textfield
+                iconStart="@tui.user"
+            >   
+                <label tuiLabel>ФИО</label>
+                <input
+                    placeholder="Иванов Иван Иванович"
+                    tuiTextfield
+                    formControlName="fullName"
+                />
+            </tui-textfield>
+            <tui-error
+                formControlName="fullName"
+                [error]="[] | tuiFieldError | async"
+            />
+        </label>
+        <label>
+            <tui-textfield
+                iconStart="@tui.key-round"
+            >   
+                <label tuiLabel>Пароль</label>
+                <input
+                    tuiTextfield
+                    type="password"
+                    formControlName="password"
+                />
+            </tui-textfield>
+            <tui-error
+                formControlName="password"
+                [error]="[] | tuiFieldError | async"
+            />
+        </label>
+    </form>
+
+    <footer class="dialog-footer">
+        <button
+            appearance="primary"
+            size="m"
+            tuiButton
+            [disabled]="accountForm.invalid"
+            type="submit"
+            [loading]="isCreating()"
+            (click)="createAccount()"
+            style="width: 40%"
+        >
+            Добавить аккаунт
+        </button>
+    </footer>
+</ng-template>
+
+<section
+    class="items-container"
+    tuiFade="vertical"
+>
+    @if (isLoading() || accounts() === null) {
+        <tui-loader class="loader" [overlay]="true"/>
+    } @else {
+        @for (item of accounts(); track $index) {
+            <article class="item">
+                <header class="item__header">
+                    <tui-avatar
+                        [src]="item.fullName | userInitials"
+                        size="l"
+                        [style.background]="item.fullName | userInitials | tuiAutoColor"
+                    />
+                    <div class="header__container">
+                        <p class="container__title" tuiFade="horizontal">{{item.fullName}}</p>
+                        <p class="container__second_title">Адрес эл. почты: {{item.email}}</p>
+                    </div>
+                </header>
+                @if (item.email != 'admin@mail.com') {
+                    <div class="item__main">
+                        <button
+                            appearance="secondary"
+                            size="m"
+                            tuiButton
+                            tuiHint="Удалить аккаунт"
+                            type="button"
+                            (click)="confirmDelete(item.id)"
+                            iconStart="@tui.trash"
+                        ></button>
+                    </div>
+                } @else {	
+                    <tui-chip appearance="primary" size="m">Авторизованный аккаунт</tui-chip>
+                }
+            </article>
+        }
+    }
+</section>

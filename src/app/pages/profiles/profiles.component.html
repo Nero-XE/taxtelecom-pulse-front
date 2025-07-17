@@ -1,0 +1,51 @@
+<header class="header">
+    <h3 class="section-header">Профили</h3>
+</header>
+
+<tui-textfield
+    iconStart="@tui.search"
+    >
+    <label tuiLabel>Поиск</label>
+    <input
+        [formControl]="searchQuery"
+        tuiTextfield
+    />
+    <tui-icon tuiTooltip="Поиск осуществляется по ФИО" />
+</tui-textfield>
+
+<div 
+    class="profiles-container"
+    tuiFade="vertical"
+>
+    @if (isLoading()) {
+        <tui-loader class="loader" [overlay]="true"/>
+    }
+
+    @for (item of profiles(); track $index) {
+    <article class="profile-item">
+        <header class="profile-item__header">
+            <tui-avatar
+                [src]="getInitials(item.fullName)"
+                class="text"
+                size="s"
+                [style.background]="getInitials(item.fullName) | tuiAutoColor"
+            />
+            <div class="profile-item__header__description">
+                <h6 class="profile-item__header__description__header" tuiFade="horizontal">{{item.fullName}}</h6>
+            </div>
+        </header>
+        <footer class="profile-item__footer">
+            <button
+                appearance="flat"
+                size="s"
+                tuiButton
+                type="button"
+                iconEnd="@tui.chevron-right"
+                [routerLink]="item.id.toString()"
+            >
+                Открыть профиль
+            </button>
+        </footer>
+    </article>
+    }
+</div>

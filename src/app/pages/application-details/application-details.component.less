@@ -1,0 +1,131 @@
+@import '@taiga-ui/core/styles/taiga-ui-local.less';
+
+:host {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    position: relative;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 16px;
+}
+
+.back-button {
+    padding-left: unset;
+}
+
+.page-header {
+    font: var(--tui-font-heading-3);
+    color: var(--tui-text-primary);
+    margin: unset;
+}
+
+.page-subheader {
+    font: var(--tui-font-heading-6);
+    color: var(--tui-text-secondary);
+    margin: unset;
+}
+
+.divider {
+    margin: 0 16px;
+    height: 1px;
+    background-color: var(--tui-border-normal);
+    border: 0;
+    border-radius: 1px;
+}
+
+
+.item {
+    box-sizing: border-box;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+
+    background-color: var(--tui-background-base);
+    padding: 16px;
+    border-radius: 0.75rem;
+
+    border: 1px solid var(--tui-border-normal);
+    box-shadow: 0 0.125rem 0.1875rem rgba(0, 0, 0, 0.1);
+}
+
+.item__main {
+    padding-top: 16px;
+}
+
+.item__header {
+    display: flex;
+    align-items: start;
+    gap: 16px;
+}
+
+.items-container {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 509px;
+
+    position: relative;
+    overflow: auto;
+
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 16px;
+
+    padding-bottom: 16px;
+}
+
+.header__container {
+    inline-size: 100%;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.container__title {
+    font: var(--tui-font-text-l);
+    color: var(--tui-text-primary);
+    margin: unset;
+}
+
+.container__status {
+    font: var(--tui-font-text-m);
+    color: var(--tui-text-primary);
+    margin: unset;
+}
+
+.not-found-header {
+    box-sizing: border-box;
+    font: var(--tui-font-text-xl);
+    width: 100%;
+    text-align: center;
+    color: var(--tui-status-negative);
+    padding: 48px;
+    margin: unset;
+}
+
+.loader {
+    min-inline-size: 3.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: var(--tui-background-base);
+}

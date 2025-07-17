@@ -1,0 +1,56 @@
+<header class="header">
+    <h3 class="section-header">Статистика</h3>
+</header>
+
+<div 
+    class="applications-container"
+    tuiFade="vertical"
+>
+    <section class="stats-item">
+        <header class="header-section">
+            <h4 class="section-header-h4">Кол-во анкет по городам</h4>
+            <span class="section-description">Статистика приводится по количеству анкет поступивших из разных городов</span>
+        </header>
+        <div class="wrapper">
+            <tui-ring-chart
+                [value]="value"
+                [(activeItemIndex)]="activeItemIndex"
+                size="l"
+            >
+                <span>{{ sum }}</span>
+                <div>Кол-во анкет</div>
+            </tui-ring-chart>
+        
+            <div class="legend">
+                <tui-legend-item
+                    *ngFor="let label of labels; let index = index"
+                    size="m"
+                    class="item"
+                    [active]="isItemActive(index)"
+                    [color]="'var(--tui-chart-categorical-0' + index + ')'"
+                    [text]="label"
+                    (tuiHoveredChange)="onHover(index, $event)"
+                >
+                    <span>{{ value[index] }}</span>
+                </tui-legend-item>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-item">
+        <header class="header-section">
+            <h4 class="section-header-h4">Соотношение отклоненных и принятых анкет</h4>
+            <span class="section-description">Статистика приводится по общему количеству отклоненных и принятых анкет за каждый месяц</span>
+        </header>
+        <tui-axes
+            class="axes"
+            [axisXLabels]="labelsX"
+            [axisYLabels]="labelsY"
+        >
+            <tui-bar-chart
+                [max]="100"
+                [value]="valueApplications"
+            />
+        </tui-axes>
+    </section>
+</div>

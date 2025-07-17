@@ -1,0 +1,119 @@
+@import '@taiga-ui/core/styles/taiga-ui-theme.less';
+
+:host {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.header {
+    box-sizing: border-box;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+
+    padding: 16px 25rem;
+    background-color: var(--tui-background-base);
+    border: 1px solid var(--tui-border-normal);
+}
+
+.header-logo {
+    height: 24px;
+}
+
+.app-control-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.account-fullname {
+    font: var(--tui-font-text-m);
+    color: var(--tui-text-secondary)
+}
+
+.theme-toggle-button {
+    border-radius: 50rem;
+}
+
+.main {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 32px;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 32px 0;
+    background-color: var(--tui-background-base);
+}
+
+.aside {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navigation-menu {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.navigation-button {
+    width: 256px;
+    justify-content: start;
+
+    font: var(--tui-font-text-ui-m) !important;
+    color: var(--tui-text-primary) !important;
+}
+
+.divider {
+    width: 90%;
+    height: 1px;
+    background-color: var(--tui-border-normal);
+    border: 0;
+    border-radius: 1px;
+    margin: 16px 0;
+}
+
+.aside-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.app-version {
+    font: var(--tui-font-text-s);
+    color: var(--tui-text-tertiary);
+}
+
+.page-section {
+    box-sizing: border-box;
+    height: 100%;
+    width: 52.5rem;
+
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--tui-border-normal);
+    box-shadow: var(--tui-shadow-medium);
+    background-color: var(--tui-background-base);
+}

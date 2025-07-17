@@ -1,30 +1,46 @@
-<h1 class="font-bold text-4xl text-black text-center mb-16">Вход</h1>
-
-<div class="bg-white outline-1 outline-gray-300 w-min h-min flex rounded-4xl overflow-hidden">
-    <div class="bg-gray-50 w-[400px] h-[400px] shadow-[1px_0_0_#d1d5dc] flex items-center justify-center">
-        <img src="images/login-page-image.svg" alt="Maxim Technology">
-    </div>
-    <div class="w-[400px] h-[400px] flex flex-col items-center justify-between p-8">
-        <img src="images/app-logo.svg" alt="maxim technology">
-        <form id="login-form" class="flex flex-col gap-4 w-full">
-            <div class="flex flex-col gap-2">
-                <label class="ml-4 text-sm" for="login">Логин</label>
-                <div class="flex flex-row items-center relative">
-                    <img class="absolute p-4" src="icons/form-login-icon.svg" alt="login">
-                    <input class="text-sm pl-12 px-6 h-12 outline-1 outline-gray-300 focus:outline-5 focus:outline-teal-500/20 transition-all rounded-full w-full" required type="text" id="login">
-                </div>
-            </div>
-            <div class="flex flex-col gap-2">
-                <label class="ml-4 text-sm" for="password">Пароль</label>
-                <div class="flex flex-row items-center relative">
-                    <img class="absolute p-4" src="icons/form-password-icon.svg" alt="login">
-                    <input class="text-sm pl-12 px-6 h-12 outline-1 outline-gray-300 focus:outline-4 focus:outline-teal-500/20 transition-all rounded-full w-full" required type="password" id="password">
-                </div>
-            </div>
-        </form>
-        <span class="text-xs ml-4 text-red-700 hidden">Не верный логин или пароль</span>
-        <input type="button" form="login-form" class="text-sm font-bold h-12 text-white py-3 bg-teal-400 hover:bg-teal-300 active:bg-teal-500 transition-colors rounded-full w-full" value="Вход">
-    </div>
+<h3 class="auth-form-header">Вход</h3>
+<div class="auth-container">
+      @if (darkMode() === false) {
+        <img src="logo.svg" alt="Maxim Technology">
+    } @else {
+        <img src="logo-dark.svg" alt="Maxim Technology">
+    }
+  <form
+    id="authForm"
+    class="auth-form"
+    [formGroup]="authForm"
+    (submit)="auth()"
+  >
+    <tui-textfield iconStart="@tui.mail">
+      <label tuiLabel>Адрес эл. почты</label>
+      <input tuiTextfield formControlName="identity" />
+    </tui-textfield>
+    <tui-error
+      formControlName="identity"
+      [error]="[] | tuiFieldError | async"
+    />
+    <tui-textfield iconStart="@tui.key-round">
+      <label tuiLabel>Пароль</label>
+      <input tuiTextfield type="password" formControlName="password" />
+      <tui-icon tuiPassword />
+    </tui-textfield>
+    <tui-error
+      formControlName="password"
+      [error]="[] | tuiFieldError | async"
+    />
+  </form>
+  <div class="auth-form-control">
+    <button
+      tuiButton
+      class="auth-button"
+      type="submit"
+      form="authForm"
+      [disabled]="authForm.invalid || isLoading()"
+      [loading]="isLoading()"
+    >
+      Войти
+    </button>
+    <tui-error [error]="error()" />
+  </div>
 </div>
-
-<p class="text-xs text-gray-500 text-center mt-16">Версия приложения: 0.0.1 Пре-альфа</p>
+<span class="app-version">Версия приложения: {{ appVersion }}</span>

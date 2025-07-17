@@ -1,0 +1,57 @@
+<header class="header">
+    <h3 class="page-header">Moodle</h3>
+</header>
+
+<search>
+    <tui-textfield iconStart="@tui.search">
+        <label tuiLabel>Поиск</label>
+        <input
+            tuiTextfield
+            [formControl]="searchQuery"
+        >
+        <tui-icon tuiTooltip="Поиск осуществляется по ФИО" />
+    </tui-textfield>
+</search>
+
+<section
+    class="items-container"
+    tuiFade="vertical"
+>
+    @if (isLoading()) {
+        <tui-loader class="loader" [overlay]="true"/>
+    }
+
+    @for (item of moodles(); track $index) {
+        <article class="item">
+            <header class="item__header">
+                <tui-avatar
+                    [src]="item.expand.profile.fullName | userInitials"
+                    size="l"
+                    [style.background]="item.expand.profile.fullName | userInitials | tuiAutoColor"
+                />
+                <div class="header__container">
+                    <p class="container__title" tuiFade="horizontal">{{item.expand.profile.fullName}}</p>
+                    <p class="container__status">Статус: {{item.expand.status.name}}</p>
+                </div>
+            </header>
+            <!-- <hr class="divider"> -->
+            <div class="item__main">
+                <p class="container__status">Цель: {{item.expand.target.name}}</p>
+                <p class="container__status">Сроки тестирования: {{item.start_test_date | formatDate}} - {{item.end_test_date | formatDate}}</p>
+                <p class="container__status">Сроки вып. заданий: {{item.start_task_date| formatDate}} - {{item.end_task_date | formatDate}}</p>
+            </div>
+            <footer class="item__footer">
+                <button
+                    appearance="flat"
+                    class="footer__button"
+                    size="m"
+                    tuiButton
+                    type="button"
+                    [routerLink]="item.id.toString()"
+                >
+                    Просмотреть назначенные тесты
+                </button>
+            </footer>
+        </article>
+    }
+</section>

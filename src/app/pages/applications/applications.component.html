@@ -1,0 +1,120 @@
+<header class="header">
+    <h3 class="section-header">Анкеты</h3>
+
+    <button
+        appearance="secondary"
+        size="m"
+        tuiButton
+        type="button"
+        (click)="showDialog(template)"
+    >
+        Добавить анкету
+    </button>
+</header>
+
+<ng-template
+    #template
+    let-observer
+>
+    <h6 class="upload-header">Загрузите файл анкеты</h6>
+
+    <label tuiInputFiles>
+        <input
+            accept="application/pdf"
+            tuiInputFiles
+            [formControl]="control"
+        />
+    </label>
+
+    <tui-files class="tui-space_top-1">
+        <tui-file
+            *ngIf="loadingFiles$ | async as file"
+            state="loading"
+            [file]="file"
+            (remove)="removeFile()"
+        />
+
+        <tui-file
+            *ngIf="loadedFiles$ | async as file"
+            [file]="file"
+            (remove)="removeFile()"
+        />
+    </tui-files>
+    <button
+        appearance="primary"
+        size="l"
+        tuiButton
+        type="button"
+        style="width: 100%; margin-top: 16px;"
+        [disabled]="control.invalid"
+        (click)="createApplication()"
+    >
+        Добавить анкету
+    </button>
+</ng-template>
+
+<tui-textfield
+    iconStart="@tui.search"
+    >
+    <label tuiLabel>Поиск</label>
+    <input
+        [formControl]="searchQuery"
+        tuiTextfield
+    />
+    <tui-icon tuiTooltip="Поиск осуществляется по ФИО" />
+</tui-textfield>
+
+<div 
+    class="applications-container"
+    tuiFade="vertical"
+>
+    @if (isLoading()) {
+        <tui-loader class="loader" [overlay]="true"/>
+    }
+
+    @for (item of applications()?.items; track $index) {
+        <article class="application-item">
+            <header class="application-item__header">
+                <tui-avatar
+                    [src]="item.expand['profile']['fullName'] | userInitials"
+                    class="text"
+                    size="l"
+                    [style.background]="item.expand['profile']['fullName'] | userInitials | tuiAutoColor"
+                />
+                <div class="application-item__header__description">
+                    <h6 class="application-item__header__description__header" tuiFade="horizontal">{{item.expand['profile']['fullName']}}</h6>
+                    <p class="application-item__header__description__division">{{item.expand['division']['name']}}</p>
+                </div>
+            </header>
+            <div class="application-item__description">
+                <p>Образ. организация: {{item.expand['eduOrg']['name']}}</p>
+                <p>Город проживания: {{item.expand['resCity']['name']}}</p>
+                <p>Дата поступления: {{item.created | formatDate}}</p>
+            </div>
+            <footer class="application-item__footer">
+                <button
+                    appearance="primary"
+                    size="m"
+                    tuiButton
+                    type="button"
+                    [routerLink]=`${item.id}`
+                >
+                    Подробнее
+                </button>
+            </footer>
+        </article>
+    }
+    <footer class="applications-container-footer">
+        @if (applications() !== null && applications()!.totalItems >= 7) {
+            <tui-pagination
+                [index]="applications()!.page - 1"
+                [length]="applications()!.totalPages"
+                (indexChange)="getApplications('', $event + 1)"
+                size="l"
+                class="pagination"
+            />
+
+            <span class="items-count">Общее количество анкет: {{applications()!.totalItems}}</span>
+        }
+    </footer>
+</div>

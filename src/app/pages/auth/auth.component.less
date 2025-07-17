@@ -1,0 +1,60 @@
+:host {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+
+  background-color: var(--tui-background-elevation-1);
+}
+
+.auth-form-header {
+  font: var(--tui-font-heading-3);
+  color: var(--tui-text-primary);
+  margin: unset;
+}
+
+.auth-container {
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--tui-border-normal);
+  background-color: var(--tui-background-base);
+
+  box-shadow: var(--tui-shadow-medium);
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-form-control {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.auth-button {
+  width: 100%;
+}
+
+.app-version {
+  font: var(--tui-font-text-s);
+  color: var(--tui-text-tertiary);
+}

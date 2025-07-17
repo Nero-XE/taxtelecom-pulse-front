@@ -1,0 +1,89 @@
+<header class="header" [attr.tuiTheme]="darkMode() ? 'dark' : 'light'">
+    @if (darkMode() === false) {
+        <img class="header-logo" src="logo.svg" alt="Maxim Technology">
+    } @else {
+        <img class="header-logo" src="logo-dark.svg" alt="Maxim Technology">
+    }
+    <div class="app-control-container">
+        <span class="account-fullname">Кошкаров Дмитрий Алексеевич</span>
+        <button
+            appearance="flat"
+            class="theme-toggle-button"
+            iconStart="@tui.sun-moon"
+            tuiButton
+            (click)="darkMode.set(!darkMode())"
+            [tuiHint]="themeChangeButtonTooltip"
+            size="m"
+            tuiHintDirection="right"
+            type="button"
+        >
+        <ng-template #themeChangeButtonTooltip>
+            <span>Переключить тему</span>
+        </ng-template>
+        </button>
+    </div>
+</header>
+
+<main class="main" [attr.tuiTheme]="darkMode() ? 'dark' : 'light'">
+    <aside class="aside">
+        <nav class="navigation-menu">
+            @for (item of navItems; track $index) {
+                <button
+                    appearance="flat"
+                    size="m"
+                    [routerLink]="item.link"
+                    tuiButton
+                    type="button"
+                    class="navigation-button"
+                >
+                    <tui-icon
+                        [icon]="item.icon"
+                        [style.color]="'var(--tui-background-accent-1)'"
+                    />
+                    {{item.name}}
+                </button>
+            }
+        </nav>
+        <footer class="aside-footer">
+            @for (item of footerNavItems; track $index) {
+                @if (item.func) {
+                    <button
+                    appearance="flat"
+                    size="m"
+                    [routerLink]="item.link"
+                    (click)="item.func()"
+                    tuiButton
+                    type="button"
+                    class="navigation-button"
+                >
+                    <tui-icon
+                        [icon]="item.icon"
+                        [style.color]="'var(--tui-background-accent-1)'"
+                    />
+                    {{item.name}}
+                </button>
+                } @else {
+                    <button
+                        appearance="flat"
+                        size="m"
+                        [routerLink]="item.link"
+                        tuiButton
+                        type="button"
+                        class="navigation-button"
+                    >
+                        <tui-icon
+                            [icon]="item.icon"
+                            [style.color]="'var(--tui-background-accent-1)'"
+                        />
+                        {{item.name}}
+                    </button>
+                }
+            }
+            <hr class="divider">
+            <span class="app-version">Версия приложения: {{ appVersion }}</span>
+        </footer>
+    </aside>
+    <section class="page-section" >
+        <router-outlet />
+    </section>
+</main>
